@@ -1,17 +1,18 @@
-<div class="container my-4">
-    <% if @post.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@post.errors.count, "error") %>
+<%= render 'shared/navbar' %>
+
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <%= pluralize(@post.errors.count, "error") %>
                     prohibited this user from being saved:
-            </h2>
-            <ul>
-            <% @post.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-            </ul>
-        </div>
-    <% else %>
-        <h1>Post saved successfully</h1>
-    <% end %>
-</div>
+        </h2>
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% else %>
+    <h2>Post saved successfully</h2>
+<% end %>
+
